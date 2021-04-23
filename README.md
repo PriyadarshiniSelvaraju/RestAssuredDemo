@@ -1,22 +1,42 @@
 # RestAssuredDemo
 
 Sample Rest Assured Project to automate omdapi site:
+Rest API testing using Rest-Assured Java Framework
+This is repository of basic REST API testing framework
+The public API used for this example is -  https://www.omdbapi.com/
+This framework is developed using Rest-Assured library for Rest API testing
+
 
 Prerequisites to run the test:
-
 Make sure java, Maven and TestNG is configured in the System.
 
-STEPS TO RUN:
+Below are instructions are how to create Rest API test framework using Rest Assured Java library
+• Maven Dependency to add,
+	<dependency>
+	    <groupId>io.rest-assured</groupId>
+	    <artifactId>rest-assured</artifactId>
+	    <version>3.3.0</version>
+	    <scope>test</scope>
+	</dependency>
+	
+• RestAssured.uri = "" // to specify the basic URL of the API
 
-Goto https://www.omdbapi.com/ and sign up for an API Key. You'll need this API key to run the test.
-Build a client that contains following methods using the OMDb API:
-search(string): returns a list of all results that matched that search string. Takes pagination in account when generating the list. Query uses s parameter as specified here.
-get_by_id(string): returns the result based on the input id e.g. tt999999. Query uses i parameter as specified here.
-get_by_title(string): returns the result based on input string as title name. Query uses t parameter as specified here.
-Write a test that does the following:
-Using search method, search for all items that match the search string stem
-Assert that the result should contain at least 30 items
-Assert that the result contains items titled The STEM Journals and Activision: STEM - in the Videogame Industry
-From the list returned by search above, get imdbID for item titled Activision: STEM - in the Videogame Industry and use it to get details on this movie using get_by_id method.
-Assert that the movie was released on 23 Nov 2010 and was directed by Mike Feurstein
-Using get_by_title method, get item by title The STEM Journals and assert that the plot contains the string Science, Technology, Engineering and Math and has a runtime of 22 minutes.
+• Basic building blocks of Rest Assured - given, when, then
+
+To validate a particular item from the response body,
+	○ REST-assured takes advantage of the power of Hamcrest matchers to perform its assertions,
+	○ If equalTo is not getting detected, add this import 'import static org.hamcrest.Matchers.equalTo;'
+	○ response.then().assertThat().body("places[0].'place name'", equalTo("New York City"));
+Path and Query Parameters
+	○ http://localhost:8081/SearchApp/book?name=java => QueryParameter
+	○ http://localhost:8081/SearchApp/book/java => PathParameter
+	
+		§ Using pathParams
+			□ Given().pathParam("key","value")
+			□ When().get("//us/{key}/repose")
+			□ Then.statusCode(200)
+		§ Using Query parameters,
+			□ Given().queryParam("key","value")  or Given().param("key","value")
+			□ When().get("/us/target")
+			□ Then.statusCode(200)
+
