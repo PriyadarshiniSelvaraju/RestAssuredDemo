@@ -1,6 +1,7 @@
 # RestAssuredDemo
 
 Sample Rest Assured Project to automate omdapi site:
+
 Rest API testing using Rest-Assured Java Framework
 This is repository of basic REST API testing framework
 The public API used for this example is -  https://www.omdbapi.com/
