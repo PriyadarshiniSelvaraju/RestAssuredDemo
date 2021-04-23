@@ -4,7 +4,7 @@ Sample Rest Assured Project to automate omdapi site:
 
 Prerequisites to run the test:
 
-1. Make sure java, Maven and TestNG is configured
+Make sure java, Maven and TestNG is configured in the System.
 
 STEPS TO RUN:
 
