@@ -27,9 +27,13 @@ Below are instructions are how to create Rest API test framework using Rest Assu
 • Basic building blocks of Rest Assured - given, when, then
 
 To validate a particular item from the response body,
+
 	○ REST-assured takes advantage of the power of Hamcrest matchers to perform its assertions,
+	
 	○ If equalTo is not getting detected, add this import 'import static org.hamcrest.Matchers.equalTo;'
+	
 	○ response.then().assertThat().body("places[0].'place name'", equalTo("New York City"));
+	
 Path and Query Parameters
 	○ http://localhost:8081/SearchApp/book?name=java => QueryParameter
 	○ http://localhost:8081/SearchApp/book/java => PathParameter
