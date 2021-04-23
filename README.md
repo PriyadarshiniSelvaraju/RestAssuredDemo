@@ -9,9 +9,11 @@ This framework is developed using Rest-Assured library for Rest API testing
 
 
 Prerequisites to run the test:
+
 Make sure java, Maven and TestNG is configured in the System.
 
 Below are instructions are how to create Rest API test framework using Rest Assured Java library
+
 • Maven Dependency to add,
 	<dependency>
 	    <groupId>io.rest-assured</groupId>
